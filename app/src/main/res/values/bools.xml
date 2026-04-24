@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- BottomNavigationView의 itemActiveIndicatorEnabled 속성에 참조할 Boolean 값 -->
+    <bool name="no_indicator">false</bool>
+</resources>

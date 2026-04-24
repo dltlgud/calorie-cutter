@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="quotes">
+        <item>No pain, no gain.</item>
+        <item>Sweat is fat crying.</item>
+        <item>Push yourself because no one else is going to do it for you.</item>
+        <item>The body achieves what the mind believes.</item>
+        <item>Train insane or remain the same.</item>
+    </string-array>
+</resources>

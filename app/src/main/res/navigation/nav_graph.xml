@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/genderFragment">
+
+    <fragment
+        android:id="@+id/genderFragment"
+        android:name="com.example.main.routine.GenderFragment"
+        android:label="성별 선택">
+        <action
+            android:id="@+id/action_gender_to_age"
+            app:destination="@id/ageFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ageFragment"
+        android:name="com.example.main.routine.AgeFragment"
+        android:label="나이 입력">
+        <action
+            android:id="@+id/action_age_to_bmi"
+            app:destination="@id/bmiInputFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bmiInputFragment"
+        android:name="com.example.main.routine.BMIInputFragment"
+        android:label="BMI 입력">
+        <action
+            android:id="@+id/action_bmi_to_frequency"
+            app:destination="@id/frequencyFragment" />
+    </fragment>
+
+    <!-- 목표 단계 제거 -->
+
+    <fragment
+        android:id="@+id/frequencyFragment"
+        android:name="com.example.main.routine.FrequencyFragment"
+        android:label="주 운동 횟수">
+        <argument
+            android:name="bmi"
+            app:argType="float" />
+        <action
+            android:id="@+id/action_frequency_to_result"
+            app:destination="@id/resultFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.main.routine.ResultFragment"
+        android:label="추천 루틴" />
+</navigation>

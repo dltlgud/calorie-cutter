@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:gravity="top">
+
+    <!-- 아바타 원형 -->
+    <FrameLayout
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@drawable/bg_circle_primary_light">
+        <TextView
+            android:id="@+id/textCommentAvatar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="?"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary" />
+    </FrameLayout>
+
+    <!-- 내용 -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="3dp">
+
+            <TextView
+                android:id="@+id/textCommentAuthor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="사용자"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="@color/on_surface" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textCommentTimestamp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00/00 00:00"
+                android:textSize="11sp"
+                android:textColor="@color/on_surface_secondary" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textCommentContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="댓글 내용"
+            android:textSize="14sp"
+            android:textColor="@color/on_surface"
+            android:lineSpacingExtra="2dp" />
+    </LinearLayout>
+</LinearLayout>

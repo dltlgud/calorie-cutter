@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Primary palette -->
+    <color name="primary">#5B67CA</color>
+    <color name="primary_dark">#3D4AB0</color>
+    <color name="primary_light">#EEF0FF</color>
+    <color name="on_primary">#FFFFFF</color>
+
+    <!-- Surface / background -->
+    <color name="surface">#FFFFFF</color>
+    <color name="background">#F4F6FF</color>
+    <color name="card_surface">#FFFFFF</color>
+    <color name="on_surface">#1C1E2D</color>
+    <color name="on_surface_secondary">#6B7280</color>
+    <color name="border">#E5E7EB</color>
+    <color name="divider">#F0F2F8</color>
+
+    <!-- Semantic -->
+    <color name="danger">#EF4444</color>
+    <color name="danger_light">#FEF2F2</color>
+    <color name="success">#22C55E</color>
+    <color name="success_light">#DCFCE7</color>
+    <color name="warning">#F59E0B</color>
+
+    <!-- Legacy aliases (backward-compat) -->
+    <color name="gray_100">#F4F6FF</color>
+    <color name="gray">#9CA3AF</color>
+    <color name="gray_700">#6B7280</color>
+    <color name="main_side">#FFFFFF</color>
+    <color name="main_1">#5B67CA</color>
+    <color name="main_6">#EEF0FF</color>
+    <color name="main_2">#3D4AB0</color>
+    <color name="back">#1C1E2D</color>
+    <color name="teal_700">#0D9488</color>
+
+    <!-- Calendar -->
+    <color name="cal_sunday">#EF4444</color>
+    <color name="cal_saturday">#5B67CA</color>
+    <color name="cal_workout">#22C55E</color>
+    <color name="cal_other_month">#D1D5DB</color>
+    <color name="cal_selected">#5B67CA</color>
+</resources>

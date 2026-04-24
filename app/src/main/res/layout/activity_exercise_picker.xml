@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    android:fitsSystemWindows="true">
+
+    <!-- 헤더 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="16dp"
+        android:gravity="center_vertical"
+        android:background="@color/surface"
+        android:elevation="2dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_arrow_back"
+            android:tint="@color/on_surface"
+            android:contentDescription="뒤로가기" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="운동 선택"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="@color/on_surface"
+            android:layout_marginStart="4dp" />
+
+        <TextView
+            android:id="@+id/tv_selected_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0개 선택"
+            android:textSize="13sp"
+            android:textColor="@color/primary"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- 검색 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="4dp"
+        android:background="@color/surface">
+
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@drawable/edittext_modern"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:hint="🔍  운동 검색..."
+            android:textSize="14sp"
+            android:textColor="@color/on_surface"
+            android:textColorHint="@color/on_surface_secondary"
+            android:inputType="text"
+            android:imeOptions="actionSearch"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <!-- 카테고리 칩 -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:background="@color/surface"
+        android:elevation="2dp">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            app:selectionRequired="true"
+            app:chipSpacingHorizontal="6dp" />
+    </HorizontalScrollView>
+
+    <!-- 운동 목록 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        android:scrollbars="none" />
+
+    <!-- 선택 완료 버튼 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="@color/surface"
+        android:elevation="4dp">
+
+        <Button
+            android:id="@+id/btnConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="@drawable/btn_rectangle"
+            app:backgroundTint="@color/primary"
+            android:text="선택 완료"
+            android:textColor="@color/on_primary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:stateListAnimator="@null" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- ── 프로필 배너 ── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/primary"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="28dp"
+            android:paddingBottom="28dp">
+
+            <!-- 아바타 + 이름 + 편집 버튼 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20dp">
+
+                <FrameLayout
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/bg_avatar">
+                    <TextView
+                        android:id="@+id/tv_profile_initial"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="?"
+                        android:textSize="26sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp">
+
+                    <TextView
+                        android:id="@+id/tv_username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="불러오는 중..."
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="내 프로필"
+                        android:textSize="13sp"
+                        android:textColor="#CCFFFFFF"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_edit_userinfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:text="신체정보"
+                        android:background="@drawable/bg_avatar"
+                        android:textColor="@color/white"
+                        android:textSize="11sp"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:stateListAnimator="@null" />
+
+                    <Button
+                        android:id="@+id/btn_edit_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:layout_marginStart="6dp"
+                        android:text="내 정보"
+                        android:background="@drawable/bg_avatar"
+                        android:textColor="@color/white"
+                        android:textSize="11sp"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:stateListAnimator="@null" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 통계 미니카드 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="16dp">
+
+                    <!-- 주간 / 월간 토글 -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:orientation="horizontal"
+                        android:layout_gravity="end"
+                        android:background="@drawable/bg_chip_unselected"
+                        android:layout_marginBottom="12dp">
+
+                        <Button
+                            android:id="@+id/btn_stat_weekly"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:text="주간"
+                            android:textSize="12sp"
+                            android:background="@drawable/bg_chip_selected"
+                            android:textColor="@color/white"
+                            android:stateListAnimator="@null" />
+
+                        <Button
+                            android:id="@+id/btn_stat_monthly"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:text="월간"
+                            android:textSize="12sp"
+                            android:background="@android:color/transparent"
+                            android:textColor="@color/primary"
+                            android:stateListAnimator="@null" />
+                    </LinearLayout>
+
+                    <!-- 수치 행 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/tv_stat_days"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/primary" />
+
+                            <TextView
+                                android:id="@+id/tv_stat_days_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="운동일"
+                                android:textSize="10sp"
+                                android:textColor="@color/on_surface_secondary"
+                                android:layout_marginTop="2dp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="36dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@color/border" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/tv_stat_minutes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/primary" />
+
+                            <TextView
+                                android:id="@+id/tv_stat_minutes_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="운동(분)"
+                                android:textSize="10sp"
+                                android:textColor="@color/on_surface_secondary"
+                                android:layout_marginTop="2dp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="36dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@color/border" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/tv_stat_calories"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/primary" />
+
+                            <TextView
+                                android:id="@+id/tv_stat_calories_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="소모(kcal)"
+                                android:textSize="10sp"
+                                android:textColor="@color/on_surface_secondary"
+                                android:layout_marginTop="2dp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="36dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@color/border" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/tv_stat_intake"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/success" />
+
+                            <TextView
+                                android:id="@+id/tv_stat_intake_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="섭취(kcal)"
+                                android:textSize="10sp"
+                                android:textColor="@color/on_surface_secondary"
+                                android:layout_marginTop="2dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- ── 아래 콘텐츠 영역 ── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- 신체 정보 카드 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border"
+                app:strokeWidth="1dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="신체 정보"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/on_surface"
+                        android:layout_marginBottom="16dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <TextView
+                            android:layout_width="64dp"
+                            android:layout_height="wrap_content"
+                            android:text="나이"
+                            android:textSize="13sp"
+                            android:textColor="@color/on_surface_secondary" />
+
+                        <TextView
+                            android:id="@+id/tv_age"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="—"
+                            android:textSize="15sp"
+                            android:textColor="@color/on_surface" />
+
+                        <EditText
+                            android:id="@+id/et_age"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="44dp"
+                            android:hint="나이 입력"
+                            android:inputType="number"
+                            android:background="@drawable/edittext_modern"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp"
+                            android:textSize="14sp"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <TextView
+                            android:layout_width="64dp"
+                            android:layout_height="wrap_content"
+                            android:text="키"
+                            android:textSize="13sp"
+                            android:textColor="@color/on_surface_secondary" />
+
+                        <TextView
+                            android:id="@+id/tv_height"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="—"
+                            android:textSize="15sp"
+                            android:textColor="@color/on_surface" />
+
+                        <EditText
+                            android:id="@+id/et_height"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="44dp"
+                            android:hint="키 (cm)"
+                            android:inputType="numberDecimal"
+                            android:background="@drawable/edittext_modern"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp"
+                            android:textSize="14sp"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="64dp"
+                            android:layout_height="wrap_content"
+                            android:text="몸무게"
+                            android:textSize="13sp"
+                            android:textColor="@color/on_surface_secondary" />
+
+                        <TextView
+                            android:id="@+id/tv_weight"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="—"
+                            android:textSize="15sp"
+                            android:textColor="@color/on_surface" />
+
+                        <EditText
+                            android:id="@+id/et_weight"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="44dp"
+                            android:hint="몸무게 (kg)"
+                            android:inputType="numberDecimal"
+                            android:background="@drawable/edittext_modern"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp"
+                            android:textSize="14sp"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btn_save_userinfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:layout_marginTop="16dp"
+                        android:text="저장"
+                        android:background="@drawable/btn_rectangle"
+                        app:backgroundTint="@color/primary"
+                        android:textColor="@color/on_primary"
+                        android:textSize="14sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 운동 비율 카드 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border"
+                app:strokeWidth="1dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="운동 비율"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/on_surface"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="이번 주 운동 종목별 비중"
+                        android:textSize="12sp"
+                        android:textColor="@color/on_surface_secondary"
+                        android:layout_marginBottom="12dp" />
+
+                    <com.github.mikephil.charting.charts.PieChart
+                        android:id="@+id/chart_exercise_ratio"
+                        android:layout_width="match_parent"
+                        android:layout_height="240dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 운동 추세 카드 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border"
+                app:strokeWidth="1dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="운동 추세"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/on_surface"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="최근 7일 운동 시간(분)"
+                        android:textSize="12sp"
+                        android:textColor="@color/on_surface_secondary"
+                        android:layout_marginBottom="12dp" />
+
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/chart_exercise_trend"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 칼로리 추세 카드 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border"
+                app:strokeWidth="1dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="주간 칼로리 소모"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/on_surface"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="최근 7일 소모 칼로리(kcal)"
+                        android:textSize="12sp"
+                        android:textColor="@color/on_surface_secondary"
+                        android:layout_marginBottom="12dp" />
+
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/chart_calorie_trend"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 몸무게 변화 카드 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border"
+                app:strokeWidth="1dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="몸무게 변화"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/on_surface"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="저장할 때마다 기록됩니다"
+                        android:textSize="12sp"
+                        android:textColor="@color/on_surface_secondary"
+                        android:layout_marginBottom="12dp" />
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/chart_weight_trend"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 알림 설정 카드 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border"
+                app:strokeWidth="1dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="알림 설정"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/on_surface"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="운동 미사용 시 리마인더 주기"
+                        android:textSize="12sp"
+                        android:textColor="@color/on_surface_secondary"
+                        android:layout_marginBottom="16dp" />
+
+                    <RadioGroup
+                        android:id="@+id/rg_notification_interval"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:id="@+id/rb_notif_off"
+                            android:layout_width="wrap_content"
+                            android:layout_height="44dp"
+                            android:text="알림 끄기"
+                            android:textSize="14sp"
+                            android:textColor="@color/on_surface"
+                            android:buttonTint="@color/primary" />
+
+                        <RadioButton
+                            android:id="@+id/rb_notif_24h"
+                            android:layout_width="wrap_content"
+                            android:layout_height="44dp"
+                            android:text="24시간"
+                            android:textSize="14sp"
+                            android:textColor="@color/on_surface"
+                            android:buttonTint="@color/primary" />
+
+                        <RadioButton
+                            android:id="@+id/rb_notif_48h"
+                            android:layout_width="wrap_content"
+                            android:layout_height="44dp"
+                            android:text="48시간 (기본)"
+                            android:textSize="14sp"
+                            android:textColor="@color/on_surface"
+                            android:buttonTint="@color/primary" />
+
+                        <RadioButton
+                            android:id="@+id/rb_notif_72h"
+                            android:layout_width="wrap_content"
+                            android:layout_height="44dp"
+                            android:text="72시간"
+                            android:textSize="14sp"
+                            android:textColor="@color/on_surface"
+                            android:buttonTint="@color/primary" />
+
+                        <RadioButton
+                            android:id="@+id/rb_notif_1week"
+                            android:layout_width="wrap_content"
+                            android:layout_height="44dp"
+                            android:text="1주일"
+                            android:textSize="14sp"
+                            android:textColor="@color/on_surface"
+                            android:buttonTint="@color/primary" />
+                    </RadioGroup>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 로그아웃 -->
+            <Button
+                android:id="@+id/btn_logout"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginBottom="24dp"
+                android:text="로그아웃"
+                android:background="@drawable/btn_danger"
+                app:backgroundTint="@color/danger"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

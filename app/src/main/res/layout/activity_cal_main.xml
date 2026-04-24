@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- 월 네비게이션 헤더 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@color/surface"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <ImageButton
+                android:id="@+id/btnPrevMonth"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_arrow_back"
+                android:contentDescription="이전 달" />
+
+            <TextView
+                android:id="@+id/tvMonthYear"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="@color/on_surface"
+                android:text="2024년 1월" />
+
+            <ImageButton
+                android:id="@+id/btnNextMonth"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_arrow_forward"
+                android:contentDescription="다음 달" />
+        </LinearLayout>
+
+        <!-- 요일 헤더 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:orientation="horizontal"
+            android:background="@color/surface"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp">
+
+            <TextView android:id="@+id/tvSun" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="match_parent" android:gravity="center"
+                android:textSize="12sp" android:textColor="@color/cal_sunday"
+                android:text="일" android:textStyle="bold"/>
+            <TextView android:id="@+id/tvMon" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="match_parent" android:gravity="center"
+                android:textSize="12sp" android:textColor="@color/on_surface_secondary" android:text="월"/>
+            <TextView android:id="@+id/tvTue" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="match_parent" android:gravity="center"
+                android:textSize="12sp" android:textColor="@color/on_surface_secondary" android:text="화"/>
+            <TextView android:id="@+id/tvWed" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="match_parent" android:gravity="center"
+                android:textSize="12sp" android:textColor="@color/on_surface_secondary" android:text="수"/>
+            <TextView android:id="@+id/tvThu" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="match_parent" android:gravity="center"
+                android:textSize="12sp" android:textColor="@color/on_surface_secondary" android:text="목"/>
+            <TextView android:id="@+id/tvFri" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="match_parent" android:gravity="center"
+                android:textSize="12sp" android:textColor="@color/on_surface_secondary" android:text="금"/>
+            <TextView android:id="@+id/tvSat" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="match_parent" android:gravity="center"
+                android:textSize="12sp" android:textColor="@color/cal_saturday" android:textStyle="bold" android:text="토"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/border" />
+
+        <!-- 캘린더 그리드 (고정 높이) -->
+        <com.kizitonwose.calendar.view.CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="312dp"
+            android:background="@color/surface"
+            app:cv_dayViewResource="@layout/item_calendar_day" />
+
+        <!-- 이번주 통계 바 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/primary"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/tv_home_stat_days"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0일"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="이번주 운동"
+                    android:textSize="10sp"
+                    android:textColor="#CCFFFFFF" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center_vertical"
+                android:background="#44FFFFFF" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/tv_home_stat_minutes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0분"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="운동 시간"
+                    android:textSize="10sp"
+                    android:textColor="#CCFFFFFF" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center_vertical"
+                android:background="#44FFFFFF" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/tv_home_stat_burned"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0kcal"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="소모 칼로리"
+                    android:textSize="10sp"
+                    android:textColor="#CCFFFFFF" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center_vertical"
+                android:background="#44FFFFFF" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/tv_home_stat_intake"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0kcal"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#FCD34D" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="섭취 칼로리"
+                    android:textSize="10sp"
+                    android:textColor="#CCFFFFFF" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 날짜 헤더 + 빠른 실행 카드 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="12dp">
+
+            <TextView
+                android:id="@+id/tv_selected_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="오늘"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="@color/on_surface"
+                android:layout_marginBottom="14dp" />
+
+            <!-- 빠른 실행 카드 버튼 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- 운동 기록 카드 -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btn_day_workout"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="84dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/primary"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="4dp"
+                    app:rippleColor="#33FFFFFF">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🏋️"
+                            android:textSize="26sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="운동 기록"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:layout_marginTop="4dp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- 식단 기록 카드 -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btn_day_diet"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="84dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/success"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="4dp"
+                    app:rippleColor="#33FFFFFF">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🥗"
+                            android:textSize="26sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="식단 기록"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:layout_marginTop="4dp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 운동/식단 기록 카드 섹션 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="96dp">
+
+            <!-- 운동 기록 카드 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border"
+                app:strokeWidth="1dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🏋️"
+                            android:textSize="15sp"
+                            android:layout_marginEnd="6dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="운동 기록"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/on_surface" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_day_workouts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+
+                    <TextView
+                        android:id="@+id/tv_day_workout_empty"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="운동 기록이 없어요"
+                        android:textSize="13sp"
+                        android:textColor="@color/on_surface_secondary"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 식단 기록 카드 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border"
+                app:strokeWidth="1dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🍽️"
+                            android:textSize="15sp"
+                            android:layout_marginEnd="6dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="식단 기록"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/on_surface" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/tv_day_calorie_total"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/primary" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_day_diet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+
+                    <TextView
+                        android:id="@+id/tv_day_diet_empty"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="식단 기록이 없어요"
+                        android:textSize="13sp"
+                        android:textColor="@color/on_surface_secondary"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 루틴 버튼 행 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- 루틴 추천 카드 -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btn_day_routine"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/surface"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/border"
+                    app:strokeWidth="1.5dp"
+                    app:rippleColor="@color/primary">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🔁"
+                            android:textSize="16sp"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="루틴 추천"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/primary" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- 루틴 관리 카드 -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btn_routine_manage"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="52dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/surface"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/border"
+                    app:strokeWidth="1.5dp"
+                    app:rippleColor="@color/primary">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📋"
+                            android:textSize="16sp"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="루틴 수정"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/primary" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

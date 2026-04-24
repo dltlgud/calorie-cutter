@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    android:fitsSystemWindows="true">
+
+    <!-- 헤더 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/surface"
+        android:paddingStart="8dp"
+        android:paddingEnd="16dp"
+        android:elevation="2dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_arrow_back"
+            android:tint="@color/on_surface"
+            android:contentDescription="뒤로가기" />
+
+        <TextView
+            android:id="@+id/tvDateHeader"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="식단 기록"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="@color/on_surface"
+            android:layout_marginStart="4dp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- 칼로리 링 카드 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border"
+                app:strokeWidth="1dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="오늘 섭취 칼로리"
+                        android:textSize="13sp"
+                        android:textColor="@color/on_surface_secondary"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- 링 + 가운데 텍스트 -->
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.progressindicator.CircularProgressIndicator
+                            android:id="@+id/calorieRing"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:max="100"
+                            android:progress="0"
+                            app:indicatorSize="160dp"
+                            app:trackThickness="14dp"
+                            app:indicatorColor="@color/primary"
+                            app:trackColor="@color/border" />
+
+                        <LinearLayout
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:layout_gravity="center"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/tvCalorieIntake"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textSize="30sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/on_surface" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="kcal"
+                                android:textSize="12sp"
+                                android:textColor="@color/on_surface_secondary" />
+                        </LinearLayout>
+                    </FrameLayout>
+
+                    <!-- 목표 칼로리 설정 버튼 영역 -->
+                    <LinearLayout
+                        android:id="@+id/layoutGoalEdit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="44dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/bg_chip_unselected"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="10dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="목표  "
+                            android:textSize="13sp"
+                            android:textColor="@color/on_surface_secondary" />
+
+                        <TextView
+                            android:id="@+id/tvCalorieGoal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2,000 kcal"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/primary" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginStart="6dp"
+                            android:src="@drawable/ic_edit"
+                            android:alpha="0.5"
+                            app:tint="@color/primary" />
+                    </LinearLayout>
+
+                    <!-- 남은 칼로리 -->
+                    <TextView
+                        android:id="@+id/tvCalorieRemaining"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="남은 칼로리 2,000 kcal"
+                        android:textSize="13sp"
+                        android:textColor="@color/on_surface_secondary"
+                        android:layout_marginTop="8dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 식사 유형 선택 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="식사 유형"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/on_surface"
+                    android:layout_marginBottom="10dp" />
+
+                <!-- 상단 행: 아침 / 점심 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardMealBreakfast"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="88dp"
+                        android:layout_marginEnd="6dp"
+                        app:cardCornerRadius="18dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/border"
+                        app:strokeWidth="1.5dp"
+                        app:cardBackgroundColor="@color/surface">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="8dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🌅"
+                                android:textSize="24sp"
+                                android:layout_marginBottom="4dp" />
+
+                            <TextView
+                                android:id="@+id/tvBreakfastLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="아침"
+                                android:textSize="13sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/on_surface_secondary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="07:00 AM"
+                                android:textSize="11sp"
+                                android:textColor="@color/on_surface_secondary" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardMealLunch"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="88dp"
+                        app:cardCornerRadius="18dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/border"
+                        app:strokeWidth="1.5dp"
+                        app:cardBackgroundColor="@color/surface">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="8dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="☀️"
+                                android:textSize="24sp"
+                                android:layout_marginBottom="4dp" />
+
+                            <TextView
+                                android:id="@+id/tvLunchLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="점심"
+                                android:textSize="13sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/on_surface_secondary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="12:00 PM"
+                                android:textSize="11sp"
+                                android:textColor="@color/on_surface_secondary" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+                <!-- 하단 행: 저녁 / 간식 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardMealDinner"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="88dp"
+                        android:layout_marginEnd="6dp"
+                        app:cardCornerRadius="18dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/border"
+                        app:strokeWidth="1.5dp"
+                        app:cardBackgroundColor="@color/surface">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="8dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🌙"
+                                android:textSize="24sp"
+                                android:layout_marginBottom="4dp" />
+
+                            <TextView
+                                android:id="@+id/tvDinnerLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="저녁"
+                                android:textSize="13sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/on_surface_secondary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="06:00 PM"
+                                android:textSize="11sp"
+                                android:textColor="@color/on_surface_secondary" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardMealSnack"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="88dp"
+                        app:cardCornerRadius="18dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/border"
+                        app:strokeWidth="1.5dp"
+                        app:cardBackgroundColor="@color/surface">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:padding="8dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🍎"
+                                android:textSize="24sp"
+                                android:layout_marginBottom="4dp" />
+
+                            <TextView
+                                android:id="@+id/tvSnackLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="간식"
+                                android:textSize="13sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/on_surface_secondary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="언제든지"
+                                android:textSize="11sp"
+                                android:textColor="@color/on_surface_secondary" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 음식 정보 입력 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border"
+                app:strokeWidth="1dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="음식 정보"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/on_surface"
+                        android:layout_marginBottom="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="음식 이름"
+                        android:textSize="13sp"
+                        android:textColor="@color/on_surface_secondary"
+                        android:layout_marginBottom="6dp" />
+
+                    <EditText
+                        android:id="@+id/etFoodName"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:hint="예: 닭가슴살 샐러드"
+                        android:background="@drawable/edittext_modern"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:textSize="15sp"
+                        android:textColor="@color/on_surface"
+                        android:textColorHint="@color/on_surface_secondary"
+                        android:inputType="text"
+                        android:layout_marginBottom="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="칼로리 (kcal)"
+                        android:textSize="13sp"
+                        android:textColor="@color/on_surface_secondary"
+                        android:layout_marginBottom="6dp" />
+
+                    <EditText
+                        android:id="@+id/etCalories"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:hint="예: 350"
+                        android:background="@drawable/edittext_modern"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:textSize="15sp"
+                        android:textColor="@color/on_surface"
+                        android:textColorHint="@color/on_surface_secondary"
+                        android:inputType="number" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 오늘 식단 목록 -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardDietList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border"
+                app:strokeWidth="1dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="오늘 기록"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/on_surface" />
+
+                        <TextView
+                            android:id="@+id/tvTotalCalories"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="합계 0 kcal"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/primary" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llDietEntries"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 저장 버튼 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="@color/surface"
+        android:elevation="4dp">
+
+        <Button
+            android:id="@+id/btnSaveDiet"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="식단 추가"
+            android:background="@drawable/btn_rectangle"
+            app:backgroundTint="@color/primary"
+            android:textColor="@color/on_primary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:stateListAnimator="@null" />
+    </LinearLayout>
+
+</LinearLayout>

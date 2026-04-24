@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/border"
+    app:strokeWidth="1dp"
+    app:cardBackgroundColor="@color/surface">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <!-- 세트 번호 -->
+        <TextView
+            android:id="@+id/tvSetLabel"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="1"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary"
+            android:background="@drawable/bg_chip_unselected" />
+
+        <!-- 무게 섹션 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginStart="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="무게 (kg)"
+                android:textSize="10sp"
+                android:textColor="@color/on_surface_secondary"
+                android:layout_marginBottom="4dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/btnWeightMinus"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="−"
+                    android:textSize="18sp"
+                    android:textColor="@color/primary"
+                    android:background="@drawable/bg_chip_unselected"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <EditText
+                    android:id="@+id/etWeight"
+                    android:layout_width="52dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:hint="0"
+                    android:inputType="numberDecimal"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/on_surface"
+                    android:textColorHint="@color/on_surface_secondary"
+                    android:background="@android:color/transparent"
+                    android:padding="0dp" />
+
+                <TextView
+                    android:id="@+id/btnWeightPlus"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textSize="18sp"
+                    android:textColor="@color/primary"
+                    android:background="@drawable/bg_chip_unselected"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 구분선 -->
+        <View
+            android:layout_width="1dp"
+            android:layout_height="40dp"
+            android:background="@color/border"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp" />
+
+        <!-- 횟수 섹션 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="횟수"
+                android:textSize="10sp"
+                android:textColor="@color/on_surface_secondary"
+                android:layout_marginBottom="4dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/btnRepsMinus"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="−"
+                    android:textSize="18sp"
+                    android:textColor="@color/primary"
+                    android:background="@drawable/bg_chip_unselected"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <EditText
+                    android:id="@+id/etReps"
+                    android:layout_width="44dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:hint="0"
+                    android:inputType="number"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/on_surface"
+                    android:textColorHint="@color/on_surface_secondary"
+                    android:background="@android:color/transparent"
+                    android:padding="0dp" />
+
+                <TextView
+                    android:id="@+id/btnRepsPlus"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textSize="18sp"
+                    android:textColor="@color/primary"
+                    android:background="@drawable/bg_chip_unselected"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 완료 체크 -->
+        <CheckBox
+            android:id="@+id/chkDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:buttonTint="@color/primary" />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

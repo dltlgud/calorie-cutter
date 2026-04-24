@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/libraryFragment">
+
+    <!-- 1. 라이브러리 목록 -->
+    <fragment
+        android:id="@+id/libraryFragment"
+        android:name="com.example.main.noticeboard.LibraryFragment"
+        tools:layout="@layout/fragment_library" />
+
+    <!-- 2. 설명 화면: Exercise 객체 인자로 받음 -->
+    <fragment
+        android:id="@+id/explanationFragment"
+        android:name="com.example.main.information.ExplanationFragment"
+        tools:layout="@layout/fragment_explanation">
+        <argument
+            android:name="exercise"
+            app:argType="com.example.main.information.Exercise" />
+        <!-- 설명 → 후기 이동 시 운동 이름만 string으로 전달 -->
+        <action
+            android:id="@+id/action_explanation_to_review"
+            app:destination="@id/reviewFragment">
+            <argument
+                android:name="exerciseName"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <!-- 3. 후기 화면: exerciseName 인자 -->
+    <fragment
+        android:id="@+id/reviewFragment"
+        android:name="com.example.main.information.ReviewFragment"
+        tools:layout="@layout/fragment_review">
+        <argument
+            android:name="exerciseName"
+            app:argType="string" />
+    </fragment>
+
+</navigation>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:background="@color/surface"
+        android:elevation="2dp">
+
+        <EditText
+            android:id="@+id/et_follow_search"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:background="@drawable/edittext_modern"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:hint="사용자 검색..."
+            android:textSize="14sp"
+            android:textColor="@color/on_surface"
+            android:textColorHint="@color/on_surface_secondary"
+            android:inputType="text"
+            android:imeOptions="actionSearch"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/tv_search_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="취소"
+            android:textSize="14sp"
+            android:textColor="@color/primary"
+            android:paddingStart="12dp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_section_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="팔로우 피드"
+        android:textSize="12sp"
+        android:textAllCaps="true"
+        android:letterSpacing="0.08"
+        android:textColor="@color/on_surface_secondary"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="8dp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_follow_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none" />
+
+        <LinearLayout
+            android:id="@+id/ll_follow_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔍"
+                android:textSize="40sp"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/tv_follow_empty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="팔로우한 사용자가 없습니다"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/on_surface"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/tv_follow_empty_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="위 검색창에서 사람을 찾아보세요"
+                android:textSize="13sp"
+                android:textColor="@color/on_surface_secondary"
+                android:gravity="center"
+                android:layout_marginTop="6dp" />
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

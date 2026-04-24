@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    android:padding="24dp"
+    android:fitsSystemWindows="true">
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_gravity="start"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_arrow_back"
+        android:tint="@color/on_surface"
+        android:contentDescription="뒤로가기" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BMI 측정"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/on_surface"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="신체 정보를 입력해 BMI를 계산하세요"
+        android:textSize="14sp"
+        android:textColor="@color/on_surface_secondary"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="28dp" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="0dp"
+        app:strokeColor="@color/border"
+        app:strokeWidth="1dp"
+        app:cardBackgroundColor="@color/surface">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="키 (cm)"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="@color/on_surface"
+                android:layout_marginBottom="6dp" />
+
+            <EditText
+                android:id="@+id/etHeight"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="예: 170"
+                android:inputType="number"
+                android:background="@drawable/edittext_modern"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textSize="15sp"
+                android:textColor="@color/on_surface"
+                android:textColorHint="@color/on_surface_secondary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="몸무게 (kg)"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="@color/on_surface"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="6dp" />
+
+            <EditText
+                android:id="@+id/etWeight"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="예: 65"
+                android:inputType="numberDecimal"
+                android:background="@drawable/edittext_modern"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textSize="15sp"
+                android:textColor="@color/on_surface"
+                android:textColorHint="@color/on_surface_secondary" />
+
+            <Button
+                android:id="@+id/btnCalcBmi"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:text="BMI 계산"
+                android:background="@drawable/btn_outlined"
+                app:backgroundTint="@android:color/transparent"
+                android:textColor="@color/primary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <!-- 결과 표시 -->
+            <TextView
+                android:id="@+id/et_bmi"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="12dp"
+                android:hint="계산된 BMI가 여기에 표시됩니다"
+                android:background="@drawable/bg_primary_chip"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:gravity="center_vertical"
+                android:textSize="15sp"
+                android:textColor="@color/primary"
+                android:textColorHint="@color/on_surface_secondary" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <Button
+        android:id="@+id/btn_next_bmi"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="24dp"
+        android:text="다음으로"
+        android:background="@drawable/btn_rectangle"
+        app:backgroundTint="@color/primary"
+        android:textColor="@color/on_primary"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

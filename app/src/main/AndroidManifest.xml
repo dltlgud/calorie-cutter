@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.main">
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+
+    <application
+        android:allowBackup="true"
+        android:label="Calorie Cutter"
+        android:icon="@drawable/logo_11"
+        android:roundIcon="@drawable/logo_11"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Material3.DayNight.NoActionBar"
+        android:enableOnBackInvokedCallback="true">
+
+        <!-- 1. 앱 시작 화면: SplashActivity -->
+        <activity android:name="com.example.main.auth.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 2. 로그인 / 회원가입 / 프로필 편집 -->
+        <activity android:name="com.example.main.auth.LoginActivity" />
+        <activity android:name="com.example.main.auth.RegisterActivity" />
+        <activity android:name="com.example.main.auth.EditProfileActivity" />
+
+        <!-- 3. 캘린더 메인 -->
+        <activity android:name="com.example.main.calendarui2.CalendarMainActivity" />
+        <activity android:name="com.example.main.calendarui2.WorkoutSelectActivity" />
+        <activity android:name="com.example.main.calendarui2.WorkoutRecordActivity"/>
+        <activity android:name="com.example.main.diet.DietAddActivity" />
+
+        <!-- 4. 루틴 추천 / 루틴 관리 -->
+        <activity android:name="com.example.main.routine.RuMainActivity" />
+        <activity android:name="com.example.main.routine.RoutineManageActivity" />
+        <activity android:name="com.example.main.routine.RoutineEditActivity" />
+        <activity android:name="com.example.main.routine.ExercisePickerActivity" />
+
+        <!-- 5. 커뮤니티 -->
+        <activity android:name="com.example.main.noticeboard.CommunityMainActivity" />
+        <activity android:name="com.example.main.noticeboard.WritePostActivity" />
+        <activity android:name="com.example.main.noticeboard.PostDetailActivity"/>
+
+        <!-- 6. 운동 정보 -->
+
+        <!-- 8. 필요 시 기타 추가 정보 -->
+        <!-- <activity android:name=".extra.ExtraInfoActivity" /> -->
+
+    </application>
+</manifest>

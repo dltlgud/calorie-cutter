@@ -1,0 +1,25 @@
+<resources>
+    <string name="gender">성별</string>
+    <string name="male">남성</string>
+    <string name="female">여성</string>
+    <string name="goal">목표</string>
+    <string name="muscle_gain">근육 증가</string>
+    <string name="fat_loss">체지방 감소</string>
+    <string name="health">건강 유지</string>
+    <string name="body">체형</string>
+    <string name="slim">날씬한 체형</string>
+    <string name="average">평균 체형</string>
+    <string name="chubby">통통한 체형</string>
+
+    <string name="hint_title">제목 입력</string>
+    <string name="hint_content">내용 입력</string>
+    <string name="btn_save">저장</string>
+    <string name="btn_add_post">게시글 추가</string>
+    <string name="app_name">NoticeBoard</string>
+    <string name="next">다음</string>
+
+    <string name="exercise_icon">운동 아이콘</string>
+
+
+
+</resources>

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    android:fitsSystemWindows="true">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/surface"
+        android:elevation="2dp"
+        android:titleTextColor="@color/on_surface"
+        app:titleTextAppearance="@style/TextAppearance.App.Toolbar.Title" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- 본문 카드 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border"
+                app:strokeWidth="1dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:id="@+id/textTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="제목"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/on_surface"
+                        android:layout_marginBottom="6dp" />
+
+                    <TextView
+                        android:id="@+id/textWriter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="익명 · 5분 전"
+                        android:textSize="12sp"
+                        android:textColor="@color/on_surface_secondary"
+                        android:layout_marginBottom="16dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"
+                        android:visibility="gone"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/image_placeholder" />
+
+                    <TextView
+                        android:id="@+id/textContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="본문 내용"
+                        android:textSize="15sp"
+                        android:textColor="@color/on_surface"
+                        android:lineSpacingExtra="5dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 반응 바 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border"
+                app:strokeWidth="1dp"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/layoutLike"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/iconLike"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_thumb_up"
+                            app:tint="@color/on_surface_secondary" />
+
+                        <TextView
+                            android:id="@+id/textLike"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="공감 0"
+                            android:textSize="13sp"
+                            android:textColor="@color/on_surface_secondary"
+                            android:layout_marginStart="5dp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/border" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_comment"
+                            app:tint="@color/on_surface_secondary" />
+
+                        <TextView
+                            android:id="@+id/textCommentCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="댓글 0"
+                            android:textSize="13sp"
+                            android:textColor="@color/on_surface_secondary"
+                            android:layout_marginStart="5dp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/border" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_bookmark"
+                            app:tint="@color/on_surface_secondary" />
+
+                        <TextView
+                            android:id="@+id/textScrap"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="스크랩"
+                            android:textSize="13sp"
+                            android:textColor="@color/on_surface_secondary"
+                            android:layout_marginStart="5dp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 댓글 없을 때 -->
+            <LinearLayout
+                android:id="@+id/layoutNoComments"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginTop="16dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_chat_bubble_outline"
+                    app:tint="@color/border" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="첫 댓글을 남겨보세요"
+                    android:textColor="@color/on_surface_secondary"
+                    android:textSize="13sp"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+
+            <!-- 댓글 목록 -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewComments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:layout_marginTop="12dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 댓글 입력 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:background="@color/surface"
+        android:elevation="4dp"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/editComment"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:hint="댓글을 입력하세요"
+            android:background="@drawable/edittext_modern"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:textSize="14sp"
+            android:textColor="@color/on_surface"
+            android:textColorHint="@color/on_surface_secondary" />
+
+        <ImageButton
+            android:id="@+id/btnSendComment"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/btn_rectangle"
+            android:backgroundTint="@color/primary"
+            android:src="@android:drawable/ic_menu_send"
+            android:tint="@color/white"
+            android:padding="10dp"
+            android:contentDescription="댓글 전송" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tvTotalReps" type="id" />
+    <item name="btnRemoveSet" type="id" />
+    <item name="etKg" type="id" />
+</resources>

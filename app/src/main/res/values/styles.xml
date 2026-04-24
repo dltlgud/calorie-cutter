@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Button styles -->
+    <style name="Widget.App.Button.Primary" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/primary</item>
+        <item name="android:textColor">@color/on_primary</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:paddingTop">14dp</item>
+        <item name="android:paddingBottom">14dp</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="Widget.App.Button.Secondary" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="strokeColor">@color/primary</item>
+        <item name="strokeWidth">1.5dp</item>
+        <item name="android:textColor">@color/primary</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:paddingTop">13dp</item>
+        <item name="android:paddingBottom">13dp</item>
+        <item name="cornerRadius">12dp</item>
+    </style>
+
+    <style name="Widget.App.Button.Danger" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/danger</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:paddingTop">14dp</item>
+        <item name="android:paddingBottom">14dp</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <!-- EditText style -->
+    <style name="Widget.App.EditText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/border</item>
+        <item name="boxCornerRadiusTopStart">10dp</item>
+        <item name="boxCornerRadiusTopEnd">10dp</item>
+        <item name="boxCornerRadiusBottomStart">10dp</item>
+        <item name="boxCornerRadiusBottomEnd">10dp</item>
+        <item name="hintTextColor">@color/on_surface_secondary</item>
+    </style>
+
+    <!-- Card style -->
+    <style name="Widget.App.Card" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">@color/border</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cardBackgroundColor">@color/card_surface</item>
+    </style>
+
+    <!-- Toolbar style -->
+    <style name="Widget.App.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:background">@color/surface</item>
+        <item name="android:elevation">0dp</item>
+        <item name="titleTextColor">@color/on_surface</item>
+        <item name="titleTextAppearance">@style/TextAppearance.App.Toolbar.Title</item>
+    </style>
+
+    <style name="TextAppearance.App.Toolbar.Title" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/on_surface</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Section header -->
+    <style name="TextAppearance.App.SectionHeader" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/on_surface</item>
+    </style>
+
+    <!-- Body text -->
+    <style name="TextAppearance.App.Body" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/on_surface_secondary</item>
+    </style>
+
+    <!-- Category chip button -->
+    <style name="CategoryButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:background">@drawable/btn_category_selector</item>
+        <item name="android:textColor">@color/selector_category_text</item>
+        <item name="android:paddingStart">14dp</item>
+        <item name="android:paddingEnd">14dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <!-- Bottom nav text -->
+    <style name="BottomNavSmallText" parent="@android:style/TextAppearance">
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <!-- Circle image overlay for ShapeableImageView -->
+    <style name="CircleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- Calendar legacy -->
+    <style name="CalendarWeekWhite" parent="@android:style/TextAppearance.Small">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="CalendarDateWhite" parent="@android:style/TextAppearance.Small">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="CalendarHeaderWhite" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="CalendarNavButtonWhite" parent="@android:style/Widget">
+        <item name="android:tint">@android:color/white</item>
+    </style>
+
+</resources>
