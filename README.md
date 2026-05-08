@@ -1,14 +1,11 @@
 <div align="center">
 
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,20,24&height=200&section
-  =header&text=Calorie%20Cutter&fontSize=60&fontColor=ffffff&animation=twinkling&fontAlignY=38&desc=Android%20운동%20관
-  리%20앱&descAlignY=60&descSize=20" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,20,24&height=200&section=header&text=Calorie%20Cutter&fontSize=60&fontColor=ffffff&animation=twinkling&fontAlignY=38&desc=Android%20운동%20관리%20앱&descAlignY=60&descSize=20" width="100%"/>
 
   ### 운동 기록부터 루틴 추천까지, 나만의 피트니스 파트너
   <br/>
 
-  [![Figma](https://img.shields.io/badge/화면설계서_보러가기-F24E1E?style=for-the-badge&logo=figma&logoColor=white)](htt
-  ps://www.figma.com/design/CtSrSESCVJpADG6VetZWrv/calorie-cutter?node-id=0-1&p=f&t=kc52dThcGUc59xIU-0)
+  [![Figma](https://img.shields.io/badge/화면설계서_보러가기-F24E1E?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/design/CtSrSESCVJpADG6VetZWrv/calorie-cutter?node-id=0-1&p=f&t=kc52dThcGUc59xIU-0)
 
   </div>
 
